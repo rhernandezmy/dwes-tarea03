@@ -1,0 +1,67 @@
+[[package]]
+name = "asgiref"
+version = "3.11.0"
+description = "ASGI specs, helper code, and adapters"
+category = "main"
+optional = false
+python-versions = ">=3.9"
+
+[package.extras]
+tests = ["pytest", "pytest-asyncio", "mypy (>=1.14.0)"]
+
+[[package]]
+name = "django"
+version = "5.2.9"
+description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
+category = "main"
+optional = false
+python-versions = ">=3.10"
+
+[package.dependencies]
+asgiref = ">=3.8.1"
+sqlparse = ">=0.3.1"
+tzdata = {version = "*", markers = "sys_platform == \"win32\""}
+
+[package.extras]
+argon2 = ["argon2-cffi (>=19.1.0)"]
+bcrypt = ["bcrypt"]
+
+[[package]]
+name = "package"
+version = "0.1.1"
+description = "package is a package to package your package"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "sqlparse"
+version = "0.5.4"
+description = "A non-validating SQL parser."
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.extras]
+dev = ["build"]
+doc = ["sphinx"]
+
+[[package]]
+name = "tzdata"
+version = "2025.2"
+description = "Provider of IANA time zone data"
+category = "main"
+optional = false
+python-versions = ">=2"
+
+[metadata]
+lock-version = "1.1"
+python-versions = ">=3.12,<4.0"
+content-hash = "edc93d3726c03a2927001049e772cfa4e1d8bddf7e019577f7a0ff33c250a04a"
+
+[metadata.files]
+asgiref = []
+django = []
+package = []
+sqlparse = []
+tzdata = []

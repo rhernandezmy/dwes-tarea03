@@ -1,17 +1,21 @@
-from django.shortcuts import render
+from django.views.generic import DetailView
+from types import SimpleNamespace
+from datetime import date, timedelta
 
 # Create your views here.
-from django.views.generic import DetailView
-from django.views.generic import ListView
-from .models import Tarea
-
 class DetalleTarea(DetailView):
-
-    model = Tarea
     template_name = 'tareas/detalle_tarea.html'
-    context_object_name = 'tarea'
 
-class ListaTareas(ListView):
-    model = Tarea
-    template_name = 'tareas/lista_tareas.html'  # Plantilla para listar las tareas
-    context_object_name = 'tareas' 
+    def get_object(self, queryset=None):
+        fecha_hoy = date.today()
+        fecha_recordatorio = fecha_hoy + timedelta(days=7)  # Una semana después
+
+        return SimpleNamespace(
+            titulo="Detalle de la Tarea",
+            descripcion="Muestra información detallada de la tarea",
+            completada=False,
+            fecha_creacion=fecha_hoy,
+            fecha_recordatorio=fecha_recordatorio
+        )
+
+
